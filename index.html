@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Combustível</h1>
+    <div id="gasinputdiv">
+      <p id="gastext">Preço da Gasolina</p>
+      <input
+        type="text"
+        name="gasinput"
+        id="gasinput"
+        placeholder="Gasolina..."
+      />
+    </div>
+    <br />
+    <div id="alcoolinputdiv">
+      <p id="alctext">Preço do Álcool</p>
+      <input
+        type="text"
+        name="alcinput"
+        id="alcinput"
+        placeholder="Álcool..."
+      />
+    </div>
+    <br />
+    <button onclick="verify()" id="gasverify">Verificar</button>
+    <p id="res"></p>
+
+    <script>
+      function verify() {
+        let gas = Number(
+          document.querySelector("input#gasinput").value.replace(",", ".")
+        );
+        let alc = Number(
+          document.querySelector("input#alcinput").value.replace(",", ".")
+        );
+        let res = document.querySelector("p#res");
+        if (alc / gas >= 0.7) {
+          res.innerHTML = "A gasolina é a melhor opção.";
+        } else {
+          res.innerHTML = "O álcool é a melhor opção.";
+        }
+      }
+    </script>
+  </body>
+</html>
